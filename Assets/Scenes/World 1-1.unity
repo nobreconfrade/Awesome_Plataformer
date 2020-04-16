@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 9355624}
   - component: {fileID: 9355623}
   - component: {fileID: 9355622}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -388,6 +388,11 @@ PrefabInstance:
       propertyPath: groundCheckPosition
       value: 
       objectReference: {fileID: 1154462599908130823}
+    - target: {fileID: 1154462599588947257, guid: 9a96b1896cd2e8c44bf76bf1892143c5,
+        type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a96b1896cd2e8c44bf76bf1892143c5, type: 3}
 --- !u!4 &1154462599908130823 stripped
