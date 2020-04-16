@@ -12,11 +12,25 @@ public class PlayerMoviment : MonoBehaviour
     private Animator animator;
     private Transform transform;
 
+    public Transform groundCheckPosition;
+    public LayerMask groundLayer;
+
+    private bool isGrounded;
+    private bool jumped;
+
+    public float jumpPower = 5f;
+
     void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         transform = GetComponent<Transform>();
+    }
+
+    void Update()
+    {
+        checkGrounded();
+        playerJump();
     }
 
     void FixedUpdate()
@@ -55,8 +69,6 @@ public class PlayerMoviment : MonoBehaviour
                     stop_decay = 0f;
             }
 
-            //Debug.Log("Body vel: " + body.velocity.x);
-            Debug.Log("Stop decay: " + stop_decay);
             body.velocity = new Vector2(stop_decay, body.velocity.y);
         }
 
@@ -65,4 +77,30 @@ public class PlayerMoviment : MonoBehaviour
 
     }
 
+    void checkGrounded()
+    {
+        isGrounded = Physics2D.Raycast(groundCheckPosition.position, Vector2.down, 0.1f, groundLayer);
+
+        if (isGrounded)
+        {
+            if (jumped)
+            {
+                jumped = false;
+                animator.SetBool("animator_jump", false);
+            }
+        }
+    }
+
+    void playerJump()
+    {
+        if (isGrounded)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                jumped = true;
+                body.velocity = new Vector2(body.velocity.x, jumpPower);
+                animator.SetBool("animator_jump", true);
+            }
+        }
+    }
 }
