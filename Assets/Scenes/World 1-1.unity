@@ -393,6 +393,16 @@ PrefabInstance:
       propertyPath: groundLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 1154462599588947259, guid: 9a96b1896cd2e8c44bf76bf1892143c5,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1154462599588947259, guid: 9a96b1896cd2e8c44bf76bf1892143c5,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a96b1896cd2e8c44bf76bf1892143c5, type: 3}
 --- !u!4 &1154462599908130823 stripped

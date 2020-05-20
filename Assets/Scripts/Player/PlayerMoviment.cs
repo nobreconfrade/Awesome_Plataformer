@@ -45,12 +45,12 @@ public class PlayerMoviment : MonoBehaviour
         if(h == HorizontalConstants.right)
         {
             body.velocity = new Vector2(speed, body.velocity.y);
-            character_scale.x = 1;
+            character_scale.x = Mathf.Abs(character_scale.x);
         }
         else if(h == HorizontalConstants.left)
         {
             body.velocity = new Vector2(-speed, body.velocity.y);
-            character_scale.x = -1;
+            character_scale.x = -Mathf.Abs(character_scale.x);
 
         }
         else
