@@ -42,12 +42,12 @@ public class PlayerMoviment : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
         Vector3 character_scale = transform.localScale;
-        if(h == HorizontalConstants.right)
+        if(h == HorizontalConstants.RIGHT)
         {
             body.velocity = new Vector2(speed, body.velocity.y);
             character_scale.x = Mathf.Abs(character_scale.x);
         }
-        else if(h == HorizontalConstants.left)
+        else if(h == HorizontalConstants.LEFT)
         {
             body.velocity = new Vector2(-speed, body.velocity.y);
             character_scale.x = -Mathf.Abs(character_scale.x);
