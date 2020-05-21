@@ -10,7 +10,7 @@ public class SnailScript : MonoBehaviour
     private Rigidbody2D rigid_body;
     private Animator animator;
 
-    public LayerMask playerLayer;
+    public LayerMask player_layer;
 
 
     private bool move_left;
@@ -57,10 +57,10 @@ public class SnailScript : MonoBehaviour
     void CheckCollision()
     {
 
-        RaycastHit2D left_hit = Physics2D.Raycast(left_collision.position, Vector2.left, 0.1f, playerLayer);
-        RaycastHit2D right_hit = Physics2D.Raycast(right_collision.position, Vector2.right, 0.1f, playerLayer);
+        RaycastHit2D left_hit = Physics2D.Raycast(left_collision.position, Vector2.left, 0.1f, player_layer);
+        RaycastHit2D right_hit = Physics2D.Raycast(right_collision.position, Vector2.right, 0.1f, player_layer);
 
-        Collider2D top_hit = Physics2D.OverlapCircle(top_collision.position, 0.2f, playerLayer);
+        Collider2D top_hit = Physics2D.OverlapCircle(top_collision.position, 0.2f, player_layer);
 
         if(top_hit != null)
         {
@@ -72,8 +72,15 @@ public class SnailScript : MonoBehaviour
 
                     move_enable = false;
                     rigid_body.velocity = new Vector2(0, 0);
-
-                    animator.Play("snail_stunned");
+                    if (CompareTag(Tags.SNAIL))
+                    {
+                        //rigid_body.constraints = RigidbodyConstraints2D.None; // this will unlock rotation, very cool on stunned snail
+                        animator.Play("snail_stunned");
+                    }
+                    else if (CompareTag(Tags.BEETLE)){
+                        animator.Play("beetle_stunned");
+                        StartCoroutine(Dead(0.8f));
+                    }
                     stunned = true;
                 }
             }
@@ -89,7 +96,10 @@ public class SnailScript : MonoBehaviour
                 }
                 else
                 {
-                    rigid_body.velocity = new Vector2(ragdoll_coefficient, rigid_body.velocity.y);
+                    if (CompareTag(Tags.SNAIL))
+                    {
+                        rigid_body.velocity = new Vector2(ragdoll_coefficient, rigid_body.velocity.y);
+                    }
                 }
             }
         }
@@ -104,7 +114,10 @@ public class SnailScript : MonoBehaviour
                 }
                 else
                 {
-                    rigid_body.velocity = new Vector2(-ragdoll_coefficient, rigid_body.velocity.y);
+                    if (CompareTag(Tags.SNAIL))
+                    {
+                        rigid_body.velocity = new Vector2(-ragdoll_coefficient, rigid_body.velocity.y);
+                    }
                 }
             }
         }
@@ -134,5 +147,11 @@ public class SnailScript : MonoBehaviour
         }
 
         transform.localScale = character_scale;
+    }
+
+    IEnumerator Dead(float timer)
+    {
+        yield return new WaitForSecondsRealtime(timer);
+        gameObject.SetActive(false);
     }
 }
