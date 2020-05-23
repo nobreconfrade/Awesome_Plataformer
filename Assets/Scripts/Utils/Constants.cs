@@ -13,4 +13,5 @@ public class Tags
     static public string PLAYER = "Player";
     static public string BEETLE = "Beetle";
     static public string SNAIL = "Snail";
+    static public string BULLET = "Bullet";
 }

@@ -54,6 +54,22 @@ public class SnailScript : MonoBehaviour
         CheckCollision();
     }
 
+    void GetHit()
+    {
+        move_enable = false;
+        rigid_body.velocity = new Vector2(0, 0);
+        if (CompareTag(Tags.SNAIL))
+        {
+            //rigid_body.constraints = RigidbodyConstraints2D.None; // this will unlock rotation, very cool on stunned snail
+            animator.Play("snail_stunned");
+        }
+        else if (CompareTag(Tags.BEETLE))
+        {
+            animator.Play("beetle_stunned");
+            StartCoroutine(Dead(0.8f));
+        }
+        stunned = true;
+    }
     void CheckCollision()
     {
 
@@ -69,19 +85,7 @@ public class SnailScript : MonoBehaviour
                 if (!stunned)
                 {
                     top_hit.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(top_hit.gameObject.GetComponent<Rigidbody2D>().velocity.x, 7f);
-
-                    move_enable = false;
-                    rigid_body.velocity = new Vector2(0, 0);
-                    if (CompareTag(Tags.SNAIL))
-                    {
-                        //rigid_body.constraints = RigidbodyConstraints2D.None; // this will unlock rotation, very cool on stunned snail
-                        animator.Play("snail_stunned");
-                    }
-                    else if (CompareTag(Tags.BEETLE)){
-                        animator.Play("beetle_stunned");
-                        StartCoroutine(Dead(0.8f));
-                    }
-                    stunned = true;
+                    GetHit();
                 }
             }
         }
@@ -154,4 +158,16 @@ public class SnailScript : MonoBehaviour
         yield return new WaitForSecondsRealtime(timer);
         gameObject.SetActive(false);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == Tags.BULLET)
+        {
+            if (!stunned)
+            {
+                GetHit();
+            }
+        }
+    }
+
 }
