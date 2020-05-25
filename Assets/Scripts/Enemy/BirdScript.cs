@@ -30,11 +30,13 @@ public class BirdScript : MonoBehaviour
         move_position = transform.position;
         move_position.x -= 6f;
         move_enable = true;
+        attacked = false;
     }
 
     void Update()
     {
         BirdMovement();
+        AttackEgg();
     }
 
     void BirdMovement()
@@ -60,6 +62,45 @@ public class BirdScript : MonoBehaviour
         Vector3 character_scale = transform.localScale;
         character_scale.x *= -1;
         transform.localScale = character_scale;
+    }
+
+    void AttackEgg()
+    {
+        if (!attacked)
+        {
+            if(Physics2D.Raycast(transform.position, Vector2.down, Mathf.Infinity, player_layer))
+            {
+                Instantiate(
+                    egg, 
+                    new Vector3(
+                        transform.position.x, 
+                        transform.position.y - 1f, 
+                        transform.position.z
+                        ), 
+                    Quaternion.identity
+                    );
+                attacked = true;
+                animator.Play("bird_fly");
+            }
+        }
+    }
+
+    IEnumerator Dead()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == Tags.BULLET)
+        {
+            animator.Play("bird_dead");
+            GetComponent<BoxCollider2D>().isTrigger = true;
+            rigid_body.bodyType = RigidbodyType2D.Dynamic;
+            move_enable = false;
+            StartCoroutine(Dead());
+        }
     }
 
 }

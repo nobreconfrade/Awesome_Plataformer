@@ -58,7 +58,7 @@ public class FireBullet : MonoBehaviour
         {
             animator.Play("bullet_explode");
             move_enable = false;
-            StartCoroutine(DisableBullet(0.3f));
+            StartCoroutine(DisableBullet(0.2f));
         }
     }
 }
