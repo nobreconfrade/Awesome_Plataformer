@@ -63,7 +63,7 @@ public class SpiderScript : MonoBehaviour
 
     IEnumerator Dead()
     {
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSeconds(3f);
         gameObject.SetActive(false);
     }
 }

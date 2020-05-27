@@ -8,6 +8,7 @@ TagManager:
   - Beetle
   - Snail
   - Bullet
+  - Spider
   layers:
   - Default
   - TransparentFX

@@ -155,7 +155,7 @@ public class SnailScript : MonoBehaviour
 
     IEnumerator Dead(float timer)
     {
-        yield return new WaitForSecondsRealtime(timer);
+        yield return new WaitForSeconds(timer);
         gameObject.SetActive(false);
     }
 
