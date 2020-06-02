@@ -19,32 +19,65 @@ public class FrogScript : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         jump_left = true;
+        jumps = 0;
         StartCoroutine(frog_jump_corountine);
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-
+        if(animation_finished && animation_started)
+        {
+            animation_started = false;
+            transform.parent.position = transform.position;
+            transform.localPosition = Vector3.zero;
+        }    
     }
 
     IEnumerator FrogJump()
     {
         yield return new WaitForSeconds(frog_jump_timer);
+
+        animation_started = true;
+        animation_finished = false;
+
         if (jump_left)
         {
             animator.Play("frog_jump_left");
         }
+        else
+        {
+            animator.Play("frog_jump_right");
+        }
+
+        jumps++;
 
         StartCoroutine(frog_jump_corountine);
     }
 
     void AfterAnimationFinished()
     {
-        animator.Play("frog_idle_left");
+        animation_finished = true;
+
+        if (jump_left)
+        {
+            animator.Play("frog_idle_left");
+        }
+        else
+        {
+            animator.Play("frog_idle_right");
+        }
+
+        if (jumps == 3)
+        {
+            jumps = 0;
+            Vector3 character_scale = transform.localScale;
+            character_scale.x *= -1;
+            transform.localScale = character_scale;
+
+            jump_left = !jump_left;
+        }
     }
 }
