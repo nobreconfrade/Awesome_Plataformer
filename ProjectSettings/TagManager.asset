@@ -9,6 +9,8 @@ TagManager:
   - Snail
   - Bullet
   - Spider
+  - Water
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -43,6 +45,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 4273334225
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2722681721
     locked: 0
