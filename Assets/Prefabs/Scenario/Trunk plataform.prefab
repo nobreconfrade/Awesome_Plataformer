@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4797659962969830120}
   - component: {fileID: 7825162323137142973}
   - component: {fileID: 6158734387055713294}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trunk plataform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

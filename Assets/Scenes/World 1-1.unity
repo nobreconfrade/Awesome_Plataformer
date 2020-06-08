@@ -412,6 +412,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 625274463}
     m_Modifications:
+    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_Name
+      value: Water (4)
+      objectReference: {fileID: 0}
     - target: {fileID: -9038712918370871562, guid: 056ae1cd4e85fc347be9721e69d54669,
         type: 3}
       propertyPath: m_Offset.y
@@ -426,11 +431,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
-        type: 3}
-      propertyPath: m_Name
-      value: Water (4)
       objectReference: {fileID: 0}
     - target: {fileID: 2706625854139426437, guid: 056ae1cd4e85fc347be9721e69d54669,
         type: 3}
@@ -486,6 +486,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368215682269384868, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 056ae1cd4e85fc347be9721e69d54669, type: 3}
@@ -1467,6 +1472,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 625274463}
     m_Modifications:
+    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_Name
+      value: Water (2)
+      objectReference: {fileID: 0}
     - target: {fileID: -9038712918370871562, guid: 056ae1cd4e85fc347be9721e69d54669,
         type: 3}
       propertyPath: m_Offset.y
@@ -1481,11 +1491,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
-        type: 3}
-      propertyPath: m_Name
-      value: Water (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2706625854139426437, guid: 056ae1cd4e85fc347be9721e69d54669,
         type: 3}
@@ -1541,6 +1546,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368215682269384868, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 056ae1cd4e85fc347be9721e69d54669, type: 3}
@@ -1861,6 +1871,8 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main camera
   m_TagString: MainCamera
@@ -1876,6 +1888,32 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!61 &519420030
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 17.77, y: 15}
+  m_EdgeRadius: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1934,6 +1972,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c0b1a0381325a447b3c3fe5c2b7e5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reset_speed: 0.5
+  camera_speed: 0.3
+  camera_bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
 --- !u!1 &526320594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2780,12 +2835,12 @@ PrefabInstance:
     - target: {fileID: 3842248874107683658, guid: d30734b16b45ce94f9cc8266ecd2d927,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 37.51
+      value: 38.935
       objectReference: {fileID: 0}
     - target: {fileID: 3842248874107683658, guid: d30734b16b45ce94f9cc8266ecd2d927,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.62
+      value: -0.791
       objectReference: {fileID: 0}
     - target: {fileID: 3842248874107683658, guid: d30734b16b45ce94f9cc8266ecd2d927,
         type: 3}
@@ -3271,6 +3326,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 625274463}
     m_Modifications:
+    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_Name
+      value: Water (3)
+      objectReference: {fileID: 0}
     - target: {fileID: -9038712918370871562, guid: 056ae1cd4e85fc347be9721e69d54669,
         type: 3}
       propertyPath: m_Offset.y
@@ -3285,11 +3345,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
-        type: 3}
-      propertyPath: m_Name
-      value: Water (3)
       objectReference: {fileID: 0}
     - target: {fileID: 2706625854139426437, guid: 056ae1cd4e85fc347be9721e69d54669,
         type: 3}
@@ -3345,6 +3400,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368215682269384868, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 056ae1cd4e85fc347be9721e69d54669, type: 3}
@@ -3931,6 +3991,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 625274463}
     m_Modifications:
+    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_Name
+      value: Water (1)
+      objectReference: {fileID: 0}
     - target: {fileID: -9038712918370871562, guid: 056ae1cd4e85fc347be9721e69d54669,
         type: 3}
       propertyPath: m_Offset.y
@@ -3945,11 +4010,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
-        type: 3}
-      propertyPath: m_Name
-      value: Water (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2706625854139426437, guid: 056ae1cd4e85fc347be9721e69d54669,
         type: 3}
@@ -4006,6 +4066,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1368215682269384868, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 056ae1cd4e85fc347be9721e69d54669, type: 3}
 --- !u!1001 &1342991309
@@ -4015,6 +4080,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 625274463}
     m_Modifications:
+    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_Name
+      value: Water (7)
+      objectReference: {fileID: 0}
     - target: {fileID: -9038712918370871562, guid: 056ae1cd4e85fc347be9721e69d54669,
         type: 3}
       propertyPath: m_Offset.y
@@ -4029,11 +4099,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
-        type: 3}
-      propertyPath: m_Name
-      value: Water (7)
       objectReference: {fileID: 0}
     - target: {fileID: 2706625854139426437, guid: 056ae1cd4e85fc347be9721e69d54669,
         type: 3}
@@ -4089,6 +4154,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368215682269384868, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 056ae1cd4e85fc347be9721e69d54669, type: 3}
@@ -4720,6 +4790,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 625274463}
     m_Modifications:
+    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_Name
+      value: Water (5)
+      objectReference: {fileID: 0}
     - target: {fileID: -9038712918370871562, guid: 056ae1cd4e85fc347be9721e69d54669,
         type: 3}
       propertyPath: m_Offset.y
@@ -4734,11 +4809,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
-        type: 3}
-      propertyPath: m_Name
-      value: Water (5)
       objectReference: {fileID: 0}
     - target: {fileID: 2706625854139426437, guid: 056ae1cd4e85fc347be9721e69d54669,
         type: 3}
@@ -4794,6 +4864,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368215682269384868, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 056ae1cd4e85fc347be9721e69d54669, type: 3}
@@ -4912,6 +4987,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 625274463}
     m_Modifications:
+    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_Name
+      value: Water (6)
+      objectReference: {fileID: 0}
     - target: {fileID: -9038712918370871562, guid: 056ae1cd4e85fc347be9721e69d54669,
         type: 3}
       propertyPath: m_Offset.y
@@ -4926,11 +5006,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
-        type: 3}
-      propertyPath: m_Name
-      value: Water (6)
       objectReference: {fileID: 0}
     - target: {fileID: 2706625854139426437, guid: 056ae1cd4e85fc347be9721e69d54669,
         type: 3}
@@ -4987,6 +5062,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1368215682269384868, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 056ae1cd4e85fc347be9721e69d54669, type: 3}
 --- !u!4 &1752229912 stripped
@@ -5010,12 +5090,12 @@ PrefabInstance:
     - target: {fileID: 3842248874107683658, guid: d30734b16b45ce94f9cc8266ecd2d927,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 36.8
+      value: 37.763
       objectReference: {fileID: 0}
     - target: {fileID: 3842248874107683658, guid: d30734b16b45ce94f9cc8266ecd2d927,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.66
+      value: 0.198
       objectReference: {fileID: 0}
     - target: {fileID: 3842248874107683658, guid: d30734b16b45ce94f9cc8266ecd2d927,
         type: 3}
@@ -5085,12 +5165,12 @@ PrefabInstance:
     - target: {fileID: 3842248874107683658, guid: d30734b16b45ce94f9cc8266ecd2d927,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 37.21
+      value: 38.35
       objectReference: {fileID: 0}
     - target: {fileID: 3842248874107683658, guid: d30734b16b45ce94f9cc8266ecd2d927,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.11
+      value: -0.265
       objectReference: {fileID: 0}
     - target: {fileID: 3842248874107683658, guid: d30734b16b45ce94f9cc8266ecd2d927,
         type: 3}
@@ -5738,6 +5818,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 625274463}
     m_Modifications:
+    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_Name
+      value: Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: -9038712918370871562, guid: 056ae1cd4e85fc347be9721e69d54669,
         type: 3}
       propertyPath: m_Offset.y
@@ -5752,16 +5842,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
-        type: 3}
-      propertyPath: m_Name
-      value: Water
-      objectReference: {fileID: 0}
-    - target: {fileID: 6034777363505979554, guid: 056ae1cd4e85fc347be9721e69d54669,
-        type: 3}
-      propertyPath: m_Layer
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2706625854139426437, guid: 056ae1cd4e85fc347be9721e69d54669,
         type: 3}
@@ -5817,6 +5897,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368215682269384868, guid: 056ae1cd4e85fc347be9721e69d54669,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 056ae1cd4e85fc347be9721e69d54669, type: 3}
@@ -6551,6 +6636,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8871462883640251775, guid: 66daa083d5e084f4b8ab32a370ebf4e7,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66daa083d5e084f4b8ab32a370ebf4e7, type: 3}
 --- !u!1001 &5908550101399264853
@@ -6633,6 +6723,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground aerial
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651641863133806300, guid: a3dbdc248fb258d428986619ef7bc394,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651641863133806300, guid: a3dbdc248fb258d428986619ef7bc394,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3365598561797081282, guid: a3dbdc248fb258d428986619ef7bc394,
         type: 3}

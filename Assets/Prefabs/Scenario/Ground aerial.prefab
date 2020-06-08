@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3365598561797081282}
   - component: {fileID: 2463437793463897370}
   - component: {fileID: 7340047690484810218}
-  m_Layer: 0
-  m_Name: Ground aerial 1
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: Ground aerial
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

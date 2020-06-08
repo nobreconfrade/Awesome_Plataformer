@@ -14,9 +14,7 @@ public class BackgroundScript : MonoBehaviour
         float height = sprite_renderer.sprite.bounds.size.y;
         
         float worldHeight = Camera.main.orthographicSize * 2;
-        Debug.Log(worldHeight);
         float worldWidth = worldHeight / Screen.height * Screen.width;
-        Debug.Log(worldWidth);
 
 
         Vector3 background_scale = transform.localScale;
