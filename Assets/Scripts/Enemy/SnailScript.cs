@@ -96,7 +96,7 @@ public class SnailScript : MonoBehaviour
             {
                 if (!stunned)
                 {
-                    // DAMAGE FUNCTION
+                    left_hit.collider.gameObject.GetComponent<PlayerDamage>().ReceiveDamage();
                 }
                 else
                 {
@@ -114,7 +114,7 @@ public class SnailScript : MonoBehaviour
             {
                 if (!stunned)
                 {
-                    // DAMAGE FUNCTION
+                    right_hit.collider.gameObject.GetComponent<PlayerDamage>().ReceiveDamage();
                 }
                 else
                 {

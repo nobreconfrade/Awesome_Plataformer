@@ -12,13 +12,17 @@ public class SpiderScript : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rigid_body;
     private Vector3 move_direction = Vector3.down;
+    private BoxCollider2D box_collider;
 
     private bool move_enable;
+
+    public LayerMask player_layer;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         rigid_body = GetComponent<Rigidbody2D>();
+        box_collider = GetComponent<BoxCollider2D>();
     }
 
     private void Start()
@@ -29,6 +33,10 @@ public class SpiderScript : MonoBehaviour
 
     private void Update()
     {
+        if(Physics2D.OverlapBox(transform.position, box_collider.size / 2, 0f, player_layer))
+        {
+            GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponent<PlayerDamage>().ReceiveDamage();
+        }
         if (move_enable)
         {
             MoveSpider();
@@ -59,6 +67,7 @@ public class SpiderScript : MonoBehaviour
             GetComponent<BoxCollider2D>().isTrigger = true;
             StartCoroutine(Dead());
         }
+        
     }
 
     IEnumerator Dead()
