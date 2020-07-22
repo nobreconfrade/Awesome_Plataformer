@@ -175,3 +175,4 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
+  coin: {fileID: 9202903273575293260, guid: d30734b16b45ce94f9cc8266ecd2d927, type: 3}

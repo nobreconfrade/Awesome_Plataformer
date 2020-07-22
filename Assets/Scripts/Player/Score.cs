@@ -23,12 +23,18 @@ public class Score : MonoBehaviour
     {
         if(collision.tag == Tags.COIN)
         {
-            Debug.Log("BAM");
             collision.gameObject.SetActive(false);
-            score_count++;
             audio_manager.Play();
-            coin_text_score.text = 'x' + score_count.ToString();
+            AddToCoinScore();
         }
     }
-
+    void AddToCoinScore()
+    {
+        string[] score_text;
+        int score;
+        score_text = coin_text_score.text.Split('x');
+        score = int.Parse(score_text[1]);
+        score++;
+        coin_text_score.text = 'x' + score.ToString();
+    }
 }
