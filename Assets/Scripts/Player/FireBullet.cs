@@ -58,6 +58,7 @@ public class FireBullet : MonoBehaviour
             collision.gameObject.tag == Tags.BEETLE 
             || collision.gameObject.tag == Tags.SNAIL 
             || collision.gameObject.tag == Tags.SPIDER
+            || collision.gameObject.tag == Tags.BOSS
             )
         {
             animator.Play("bullet_explode");
